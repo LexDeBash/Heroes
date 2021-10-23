@@ -64,19 +64,75 @@
 		A8A105982722F62C005E4139 /* Heroes */ = {
 			isa = PBXGroup;
 			children = (
-				A8A105992722F62C005E4139 /* AppDelegate.swift */,
-				A8A1059B2722F62C005E4139 /* SceneDelegate.swift */,
-				A8A105B127230A44005E4139 /* SuperHeroesViewController.swift */,
-				A8A105B327230AEC005E4139 /* CollectionViewCell.swift */,
-				A8A105B5272322EA005E4139 /* SuperheroImageView.swift */,
-				A8A105AD2722F701005E4139 /* Superhero.swift */,
-				A8A105AF2722F858005E4139 /* NetworkManager.swift */,
-				A8A1059F2722F62C005E4139 /* Main.storyboard */,
-				A8A105A22722F630005E4139 /* Assets.xcassets */,
-				A8A105A42722F630005E4139 /* LaunchScreen.storyboard */,
-				A8A105A72722F630005E4139 /* Info.plist */,
+				A8A105BC27241041005E4139 /* App */,
+				A8A105B827241003005E4139 /* ViewControllers */,
+				A8A105B727240FFA005E4139 /* Views */,
+				A8A105B927241014005E4139 /* Models */,
+				A8A105BA2724101C005E4139 /* Services */,
+				A8A105BB27241028005E4139 /* StoryBoards */,
+				A8A105BD2724104B005E4139 /* Resources */,
 			);
 			path = Heroes;
+			sourceTree = "<group>";
+		};
+		A8A105B727240FFA005E4139 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8A105B327230AEC005E4139 /* CollectionViewCell.swift */,
+				A8A105B5272322EA005E4139 /* SuperheroImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8A105B827241003005E4139 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8A105B127230A44005E4139 /* SuperHeroesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A8A105B927241014005E4139 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8A105AD2722F701005E4139 /* Superhero.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A8A105BA2724101C005E4139 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A8A105AF2722F858005E4139 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A8A105BB27241028005E4139 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				A8A1059F2722F62C005E4139 /* Main.storyboard */,
+				A8A105A42722F630005E4139 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		A8A105BC27241041005E4139 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A8A105992722F62C005E4139 /* AppDelegate.swift */,
+				A8A1059B2722F62C005E4139 /* SceneDelegate.swift */,
+				A8A105A72722F630005E4139 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A8A105BD2724104B005E4139 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A8A105A22722F630005E4139 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +363,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GBTTU32HS2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Heroes/Info.plist;
+				INFOPLIST_FILE = Heroes/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -335,7 +391,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GBTTU32HS2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Heroes/Info.plist;
+				INFOPLIST_FILE = Heroes/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
