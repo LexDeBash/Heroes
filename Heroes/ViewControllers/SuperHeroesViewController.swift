@@ -13,14 +13,7 @@ class SuperHeroesViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            do {
-                superheroes = try await NetworkManager.shared.fetchData()
-                collectionView.reloadData()
-            } catch {
-                print(error)
-            }
-        }
+        fetchSuperheroes()
     }
 
     // MARK: UICollectionViewDataSource
@@ -33,5 +26,17 @@ class SuperHeroesViewController: UICollectionViewController {
         let superhero = superheroes[indexPath.row]
         cell.configure(with: superhero)
         return cell
+    }
+    
+    private func fetchSuperheroes() {
+        NetworkManager.shared.fetchData { result in
+            switch result {
+            case .success(let superheroes):
+                self.superheroes = superheroes
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

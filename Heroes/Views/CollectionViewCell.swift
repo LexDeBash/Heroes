@@ -9,7 +9,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var imageView: SuperheroImageView! {
+    @IBOutlet weak var imageView: UIImageView! {
         didSet {
             imageView.layer.cornerRadius = 15
         }
@@ -17,15 +17,14 @@ class CollectionViewCell: UICollectionViewCell {
     
     func configure(with superhero: Superhero) {
         mainLabel.text = superhero.name
-        imageView.fetchImage(from: superhero.images.lg)
-        /*
-        DispatchQueue.global().async {
-            guard let imageURL = URL(string: superhero.images.sm) else { return }
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-            DispatchQueue.main.async {
+        guard let url = URL(string: superhero.images.lg) else { return }
+        NetworkManager.shared.fetchImageData(from: url) { result in
+            switch result {
+            case .success(let imageData):
                 self.imageView.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
             }
         }
-        */
     }
 }

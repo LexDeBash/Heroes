@@ -16,7 +16,6 @@
 		A8A105B02722F858005E4139 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A105AF2722F858005E4139 /* NetworkManager.swift */; };
 		A8A105B227230A45005E4139 /* SuperHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A105B127230A44005E4139 /* SuperHeroesViewController.swift */; };
 		A8A105B427230AEC005E4139 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A105B327230AEC005E4139 /* CollectionViewCell.swift */; };
-		A8A105B6272322EA005E4139 /* SuperheroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A105B5272322EA005E4139 /* SuperheroImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		A8A105AF2722F858005E4139 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A8A105B127230A44005E4139 /* SuperHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroesViewController.swift; sourceTree = "<group>"; };
 		A8A105B327230AEC005E4139 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		A8A105B5272322EA005E4139 /* SuperheroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				A8A105B327230AEC005E4139 /* CollectionViewCell.swift */,
-				A8A105B5272322EA005E4139 /* SuperheroImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,7 +209,6 @@
 				A8A1059C2722F62C005E4139 /* SceneDelegate.swift in Sources */,
 				A8A105B227230A45005E4139 /* SuperHeroesViewController.swift in Sources */,
 				A8A105AE2722F701005E4139 /* Superhero.swift in Sources */,
-				A8A105B6272322EA005E4139 /* SuperheroImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

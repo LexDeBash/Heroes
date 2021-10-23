@@ -18,21 +18,32 @@ class NetworkManager {
     
     private init() {}
     
-    func fetchData() async throws -> [Superhero] {
+    func fetchData(completion: @escaping(Result<[Superhero], NetworkError>) -> Void) {
         guard let url = URL(string: "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json") else {
-            throw NetworkError.invalidURL
+            completion(.failure(.invalidURL))
+            return
         }
-        
-        let (data, _) = try await URLSession.shared.data(from: url)
-        guard let superheroes = try? JSONDecoder().decode([Superhero].self, from: data) else {
-            throw NetworkError.decodingError
-        }
-        return superheroes
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let superheroes = try JSONDecoder().decode([Superhero].self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(superheroes))
+                }
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
     }
     
-    func fetchImage(from url: URL, completion: @escaping(Data, URLResponse) -> Void) {
+    func fetchImageData(from url: URL, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, let response = response else {
+            guard let data = data, let _ = response else {
+                completion(.failure(.noData))
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
@@ -40,7 +51,7 @@ class NetworkManager {
 //            print("response url: \(response.url!)")
 //            guard url == response.url else { return }
             DispatchQueue.main.async {
-                completion(data, response)
+                completion(.success(data))
             }
         }.resume()
     }
