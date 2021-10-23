@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ban-64-cVa">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FIND YOUR HERO-->
+        <scene sceneID="9HZ-68-ggA">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Hw-dd-LDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <collectionViewController id="4dO-zm-7nh" customClass="SuperHeroesViewController" customModule="Heroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tet-ru-vkH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="fh7-SK-e2O">
+                            <size key="itemSize" width="160" height="260"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="superhero" id="sSY-A3-DdT" customClass="CollectionViewCell" customModule="Heroes" customModuleProvider="target">
+                                <rect key="frame" x="30" y="30" width="160" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="260"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ek7-fc-kuN" customClass="SuperheroImageView" customModule="Heroes" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="236.5"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX3-yq-0Ze">
+                                            <rect key="frame" x="0.0" y="236.5" width="160" height="23.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
+                                            <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="vX3-yq-0Ze" firstAttribute="top" secondItem="ek7-fc-kuN" secondAttribute="bottom" id="Hnh-lV-5Ad"/>
+                                    <constraint firstAttribute="trailing" secondItem="ek7-fc-kuN" secondAttribute="trailing" id="fx7-wn-tgP"/>
+                                    <constraint firstAttribute="bottom" secondItem="vX3-yq-0Ze" secondAttribute="bottom" id="l8s-wt-caZ"/>
+                                    <constraint firstItem="ek7-fc-kuN" firstAttribute="top" secondItem="sSY-A3-DdT" secondAttribute="top" id="qCQ-c9-WAr"/>
+                                    <constraint firstAttribute="trailing" secondItem="vX3-yq-0Ze" secondAttribute="trailing" id="qlJ-no-pnR"/>
+                                    <constraint firstItem="ek7-fc-kuN" firstAttribute="leading" secondItem="sSY-A3-DdT" secondAttribute="leading" id="rS7-lV-STE"/>
+                                    <constraint firstItem="vX3-yq-0Ze" firstAttribute="leading" secondItem="sSY-A3-DdT" secondAttribute="leading" id="xdf-xJ-sMy"/>
+                                </constraints>
+                                <size key="customSize" width="160" height="260"/>
+                                <connections>
+                                    <outlet property="imageView" destination="ek7-fc-kuN" id="PuS-44-ug7"/>
+                                    <outlet property="mainLabel" destination="vX3-yq-0Ze" id="85Z-wS-4Ja"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="4dO-zm-7nh" id="hyv-nv-raz"/>
+                            <outlet property="delegate" destination="4dO-zm-7nh" id="rtv-Cq-yaR"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="FIND YOUR HERO" id="qRh-8f-CDi"/>
+                </collectionViewController>
+            </objects>
+            <point key="canvasLocation" x="2229" y="140"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="smh-os-o4c">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rMk-fk-lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ban-64-cVa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="0p1-3Z-R4Q">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                            <color key="textColor" red="0.58039215690000001" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4dO-zm-7nh" kind="relationship" relationship="rootViewController" id="Y3t-UI-Nqh"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1506" y="140"/>
+        </scene>
+    </scenes>
+</document>
