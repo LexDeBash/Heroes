@@ -9,7 +9,6 @@
         <!--FIND YOUR HERO-->
         <scene sceneID="9HZ-68-ggA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Hw-dd-LDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="4dO-zm-7nh" customClass="SuperHeroesViewController" customModule="Heroes" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tet-ru-vkH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
@@ -29,7 +28,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="160" height="260"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ek7-fc-kuN" customClass="SuperheroImageView" customModule="Heroes" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ek7-fc-kuN">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="236.5"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX3-yq-0Ze">
@@ -64,13 +63,13 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="FIND YOUR HERO" id="qRh-8f-CDi"/>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Hw-dd-LDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2229" y="140"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="smh-os-o4c">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rMk-fk-lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ban-64-cVa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="0p1-3Z-R4Q">
@@ -87,6 +86,7 @@
                         <segue destination="4dO-zm-7nh" kind="relationship" relationship="rootViewController" id="Y3t-UI-Nqh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rMk-fk-lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1506" y="140"/>
         </scene>

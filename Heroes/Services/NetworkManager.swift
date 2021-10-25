@@ -30,18 +30,14 @@ class NetworkManager {
         return superheroes
     }
     
-    func fetchImage(from url: URL, completion: @escaping(Data, URLResponse) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, let response = response else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-//            print("url: \(url)")
-//            print("response url: \(response.url!)")
-//            guard url == response.url else { return }
-            DispatchQueue.main.async {
-                completion(data, response)
-            }
-        }.resume()
+    func fetchImageData(from url: URL) async throws -> Data {
+        let task = Task { () -> Data in
+//            try Task.checkCancellation()
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return data
+        }
+//        task.cancel()
+        let imageData = try await task.value
+        return imageData
     }
 }

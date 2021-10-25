@@ -21,10 +21,10 @@ class SuperheroImageView: UIImageView {
         }
         
         // Fetch image from network
-        NetworkManager.shared.fetchImage(from: url) { data, response in
-            self.image = UIImage(data: data)
-            self.saveDataToCache(with: data, and: response)
-        }
+//        NetworkManager.shared.fetchImage(from: url) { data, response in
+//            self.image = UIImage(data: data)
+//            self.saveDataToCache(with: data, and: response)
+//        }
     }
     
     private func saveDataToCache(with data: Data, and response: URLResponse) {
