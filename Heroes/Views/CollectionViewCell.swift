@@ -15,12 +15,45 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private var activityIndicator: UIActivityIndicatorView?
+    
+    private var imageURL: URL? {
+        didSet {
+            imageView.image = nil
+            updateImage()
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        activityIndicator = showSpinner(in: imageView)
+    }
+    
     func configure(with superhero: Superhero) {
         mainLabel.text = superhero.name
-        guard let url = URL(string: superhero.images.lg) else { return }
+        imageURL = URL(string: superhero.images.lg)
+    }
+    
+    private func updateImage() {
+        guard let url = imageURL else { return }
         Task {
-            let imageData = try await NetworkManager.shared.fetchImageData(from: url)
-            imageView.image = UIImage(data: imageData)
+            if url == imageURL {
+                let imageData = try await NetworkManager.shared.fetchImageData(from: url)
+                imageView.image = UIImage(data: imageData)
+                activityIndicator?.stopAnimating()
+            }
         }
+    }
+    
+    private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.color = .white
+        activityIndicator.startAnimating()
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityIndicator)
+        
+        return activityIndicator
     }
 }

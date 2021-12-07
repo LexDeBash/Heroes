@@ -32,11 +32,9 @@ class NetworkManager {
     
     func fetchImageData(from url: URL) async throws -> Data {
         let task = Task { () -> Data in
-//            try Task.checkCancellation()
             let (data, _) = try await URLSession.shared.data(from: url)
             return data
         }
-//        task.cancel()
         let imageData = try await task.value
         return imageData
     }
