@@ -42,14 +42,12 @@ class NetworkManager {
     
     func fetchImageData(from url: URL, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, let _ = response else {
+            guard let data = data, let response = response else {
                 completion(.failure(.noData))
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
-//            print("url: \(url)")
-//            print("response url: \(response.url!)")
-//            guard url == response.url else { return }
+            guard url.lastPathComponent == response.url?.lastPathComponent else { return }
             DispatchQueue.main.async {
                 completion(.success(data))
             }
