@@ -37,8 +37,8 @@ class CollectionViewCell: UICollectionViewCell {
     private func updateImage() {
         guard let url = imageURL else { return }
         Task {
+            let imageData = try await NetworkManager.shared.fetchImageData(from: url)
             if url == imageURL {
-                let imageData = try await NetworkManager.shared.fetchImageData(from: url)
                 imageView.image = UIImage(data: imageData)
                 activityIndicator?.stopAnimating()
             }
