@@ -17,6 +17,13 @@ class CollectionViewCell: UICollectionViewCell {
     
     private var activityIndicator: UIActivityIndicatorView?
     
+    private var imageURL: URL? {
+        didSet {
+            imageView.image = nil
+            updateImage()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         activityIndicator = showSpinner(in: imageView)
@@ -24,14 +31,18 @@ class CollectionViewCell: UICollectionViewCell {
     
     func configure(with superhero: Superhero) {
         mainLabel.text = superhero.name
-        guard let url = URL(string: superhero.images.lg) else { return }
-        NetworkManager.shared.fetchImageData(from: url) { result in
-            switch result {
-            case .success(let imageData):
-                self.imageView.image = UIImage(data: imageData)
-                self.activityIndicator?.stopAnimating()
-            case .failure(let error):
-                print(error)
+        imageURL = URL(string: superhero.images.lg)
+    }
+    
+    private func updateImage() {
+        guard let url = imageURL else { return }
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                if url == self.imageURL {
+                    self.activityIndicator?.stopAnimating()
+                    self.imageView.image = UIImage(data: imageData)
+                }
             }
         }
     }
